@@ -2,7 +2,8 @@ import React, { useState } from 'react'
 import Mensaje from './Mensaje'
 
 
-const NuevoPresupuesto = ({presupuesto, setPresupuesto}) => {
+const NuevoPresupuesto = ({presupuesto, setPresupuesto,
+  validPresupuesto, setValidPresupuesto}) => {
 
   const [mensaje, setMensaje] = useState('')
 
@@ -15,7 +16,8 @@ const NuevoPresupuesto = ({presupuesto, setPresupuesto}) => {
     }
 
 
-    console.log("Presupuesto valido")
+    setMensaje("")
+    setValidPresupuesto(true)
     
   }
 
@@ -29,7 +31,7 @@ const NuevoPresupuesto = ({presupuesto, setPresupuesto}) => {
             type="text"
             placeholder='Añadir..'
             value={presupuesto}
-            onChange={e => setPresupuesto(e.target.value)}
+            onChange={e => setPresupuesto(Number( e.target.value))}
           />
 
         </div>
